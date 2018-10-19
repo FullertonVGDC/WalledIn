@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SlimeController : MonoBehaviour {
 
+    public float start_knockback_time;
+    private float knockback_time;
+    public float knockback_force;
+
+    //private Vector3 move_direction;
+
     public float move_speed;
 
     private Rigidbody2D my_rigid_body;
@@ -37,37 +43,52 @@ public class SlimeController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (moving)
+        if (knockback_time <= 0)
         {
-            time_to_move_counter -= Time.deltaTime;
-            my_rigid_body.velocity = move_direction;
 
-            if (time_to_move_counter < 0f)
+            if (moving)
             {
-                moving = false;
-                //time_between_move_counter = time_between_move;
-                time_between_move_counter = Random.Range(time_between_move * 0.7f, time_between_move * 1.25f);
+                time_to_move_counter -= Time.deltaTime;
+                my_rigid_body.velocity = move_direction;
+
+                if (time_to_move_counter < 0f)
+                {
+                    moving = false;
+                    //time_between_move_counter = time_between_move;
+                    time_between_move_counter = Random.Range(time_between_move * 0.7f, time_between_move * 1.25f);
+                }
             }
-        }
-        else
+            else
+            {
+                time_between_move_counter -= Time.deltaTime;
+
+                my_rigid_body.velocity = Vector2.zero;
+
+                if (time_between_move_counter < 0f)
+                {
+                    moving = true;
+
+                    //time_to_move_counter = time_to_move; 
+                    time_to_move_counter = Random.Range(time_to_move * 0.7f, time_to_move * 1.25f);
+
+                    move_direction = new Vector3(Random.Range(-1f, 1f) * move_speed, Random.Range(-1f, 1f) * move_speed, 0f);
+                }
+            }
+        } else
         {
-            time_between_move_counter -= Time.deltaTime;
-
-            my_rigid_body.velocity = Vector2.zero;
-
-            if (time_between_move_counter < 0f)
-            {
-                moving = true;
-
-                //time_to_move_counter = time_to_move; 
-                time_to_move_counter = Random.Range(time_to_move * 0.7f, time_to_move * 1.25f);
-
-                move_direction = new Vector3(Random.Range(-1f, 1f) * move_speed, Random.Range(-1f, 1f) * move_speed, 0f);
-            }
+            Debug.Log("Enemy Recieving Knockback");
+            knockback_time -= Time.deltaTime;
         }
 
 
-
+    }
+    public void Knockback(Vector3 direction)
+    {
+        
+        knockback_time = start_knockback_time;
+        //direction = new Vector3(1f, 1f, 0f);
+        move_direction = direction * knockback_force;
+        gameObject.GetComponent<Rigidbody2D>().velocity = move_direction;
     }
 
 }

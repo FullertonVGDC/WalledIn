@@ -24,23 +24,23 @@ public class DashMove : MonoBehaviour {
         
             if (direction == 0)
             {
-                if (Input.GetKey(KeyCode.A) && Input.GetKeyDown(KeyCode.RightShift))
+                if (Input.GetKey(KeyCode.A) && Input.GetKeyDown(KeyCode.Slash))
                 {
                    
                     direction = 1;
 
                 }
-                else if (Input.GetKey(KeyCode.D) && Input.GetKeyDown(KeyCode.RightShift))
+                else if (Input.GetKey(KeyCode.D) && Input.GetKeyDown(KeyCode.Slash))
                 {
                    
                     direction = 2;
                 }
-                else if (Input.GetKey(KeyCode.W) && Input.GetKeyDown(KeyCode.RightShift))
+                else if (Input.GetKey(KeyCode.W) && Input.GetKeyDown(KeyCode.Slash))
                 {
                    
                     direction = 3;
                 }
-                else if (Input.GetKey(KeyCode.S) && Input.GetKeyDown(KeyCode.RightShift))
+                else if (Input.GetKey(KeyCode.S) && Input.GetKeyDown(KeyCode.Slash))
                 {
                   
                     direction = 4;

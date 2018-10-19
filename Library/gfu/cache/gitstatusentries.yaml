@@ -12,24 +12,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 5
-  lastUpdatedAtString: 2018-10-19T12:24:10.417-07:00
-  initializedAtString: 2018-10-19T11:02:08.041-07:00
-  entries:
-  - path: .gitattributes
-    fullPath: C:\Users\ejthe\Documents\Unity\WalledIn\.gitattributes
-    projectPath: .gitattributes
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: .gitignore
-    fullPath: C:\Users\ejthe\Documents\Unity\WalledIn\.gitignore
-    projectPath: .gitignore
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: ProjectSettings\QualitySettings.asset
-    fullPath: C:\Users\ejthe\Documents\Unity\WalledIn\ProjectSettings\QualitySettings.asset
-    projectPath: ProjectSettings\QualitySettings.asset
-    originalPath: 
-    status: 3
-    staged: 0
+  lastUpdatedAtString: 2018-10-19T13:53:16.900-07:00
+  initializedAtString: 2018-10-19T11:26:08.493-07:00
+  entries: []

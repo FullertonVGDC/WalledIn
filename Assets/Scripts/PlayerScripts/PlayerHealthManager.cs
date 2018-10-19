@@ -15,11 +15,14 @@ public class PlayerHealthManager : MonoBehaviour {
     private SpriteRenderer player_sprite;
     public float alpha;
 
+    public PlayerController the_player;
 	// Use this for initialization
 	void Start () {
         player_current_health = player_max_health;
 
         player_sprite = GetComponent<SpriteRenderer>();
+
+        the_player = FindObjectOfType<PlayerController>();
 	}
 	
 	// Update is called once per frame
@@ -30,23 +33,40 @@ public class PlayerHealthManager : MonoBehaviour {
             gameObject.SetActive(false);
         }
 
+
         if (player_flash_active)
         {
-            if (flash_time < 0)
+            if (flash_time > start_flash_time * 0.66f)
             {
                 player_sprite.color = new Color(player_sprite.color.r, player_sprite.color.g, player_sprite.color.b, alpha);
+            } else if (flash_time > start_flash_time * 0.33f)
+            {
+                player_sprite.color = new Color(player_sprite.color.r, player_sprite.color.g, player_sprite.color.b, 1f);
+            } else if (flash_time > 0f)
+            {
+                player_sprite.color = new Color(player_sprite.color.r, player_sprite.color.g, player_sprite.color.b, alpha);
+            }
+
+            else
+            {
+                player_sprite.color = new Color(player_sprite.color.r, player_sprite.color.g, player_sprite.color.b, 1f);
                 player_flash_active = false;
             }
+
+            flash_time -= Time.deltaTime;
+
         }
 	}
 
-    public void HurtPlayer (int damage_to_give)
+    public void HurtPlayer (int damage_to_give, Vector3 direction)
     {
         player_current_health -= damage_to_give;
 
         player_flash_active = true;
 
         flash_time = start_flash_time;
+
+        the_player.Knockback(direction);
     }
 
     public void SetMaxHealth ()

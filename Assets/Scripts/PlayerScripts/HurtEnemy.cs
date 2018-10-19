@@ -20,7 +20,7 @@ public class HurtEnemy : MonoBehaviour {
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(damage_to_give);
+            //other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(damage_to_give);
         }
     }
 

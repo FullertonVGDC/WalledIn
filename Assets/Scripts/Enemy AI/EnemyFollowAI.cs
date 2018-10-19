@@ -10,17 +10,22 @@ public class EnemyFollowAI : MonoBehaviour {
 
     public float stop_distance;
 
-    
+    private Rigidbody2D my_rigid_body;
 
     private float player_distance;
 
     public float chase_range;
 
+    //public float start_recoil_time;
+    //private float recoil_time;
+
     // Use this for initialization
     void Start () {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
+        my_rigid_body = GetComponent<Rigidbody2D>();
 
+        //recoil_time = start_recoil_time;
 	}
 	
 	// Update is called once per frame
@@ -39,8 +44,16 @@ public class EnemyFollowAI : MonoBehaviour {
                 transform.position = Vector2.MoveTowards(transform.position, target.position, move_speed * Time.deltaTime);
 
             }
+
         }
+        
 	}
 
-    
+    //private IEnumerator RecoilCounter(Rigidbody2D enemy)
+    //{
+    //    Debug.Log("Enemy Recoiling");
+    //    enemy.velocity = Vector2.zero;
+    //    yield return new WaitForSeconds(recoil_time);
+       
+    //}
 }

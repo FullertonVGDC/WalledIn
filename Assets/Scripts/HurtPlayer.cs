@@ -20,7 +20,11 @@ public class HurtPlayer : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damage_to_give);
+            Vector3 hit_direction = other.transform.position - transform.position;
+            hit_direction = hit_direction.normalized;
+
+            other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damage_to_give, hit_direction);
+            //other.gameObject.GetComponent<PlayerController>().Knockback(new Vector3(1f, 1f, 0f));
         }
     }
 
