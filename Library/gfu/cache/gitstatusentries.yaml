@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 995438498, guid: 68c7e4565cde54155bb78d8e935f1dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cacheType: 5
+  lastUpdatedAtString: 2018-10-19T12:24:10.417-07:00
+  initializedAtString: 2018-10-19T11:02:08.041-07:00
+  entries:
+  - path: .gitattributes
+    fullPath: C:\Users\ejthe\Documents\Unity\WalledIn\.gitattributes
+    projectPath: .gitattributes
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: .gitignore
+    fullPath: C:\Users\ejthe\Documents\Unity\WalledIn\.gitignore
+    projectPath: .gitignore
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: ProjectSettings\QualitySettings.asset
+    fullPath: C:\Users\ejthe\Documents\Unity\WalledIn\ProjectSettings\QualitySettings.asset
+    projectPath: ProjectSettings\QualitySettings.asset
+    originalPath: 
+    status: 3
+    staged: 0
