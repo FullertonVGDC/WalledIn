@@ -32,7 +32,8 @@ public class EnemyController : MonoBehaviour {
     private float knockback_time;
 
     //For ChaseAI
-    private Transform target;
+    //private Transform target;
+    public Transform target;
     public float stop_distance;
     private float player_distance;
     public float chase_range;
@@ -76,7 +77,7 @@ public class EnemyController : MonoBehaviour {
         time_between_move_counter = Random.Range(time_between_move * 0.7f, time_between_move * 1.25f);
         time_to_move_counter = Random.Range(time_to_move * 0.7f, time_to_move * 1.25f);
         //For ChaseAI
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        //target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
         //For RushAI
         rush_time = start_rush_time;
@@ -137,11 +138,11 @@ public class EnemyController : MonoBehaviour {
 
                 if (player_distance < chase_range)
                 {
-
+                    Debug.Log("Chasing Player");
                     if (Vector2.Distance(transform.position, target.position) > stop_distance)
                     {
                         is_walking = true;
-
+                        Debug.Log("Chasing Player");
                         transform.position = Vector2.MoveTowards(transform.position, target.position, follow_move_speed * Time.deltaTime);
 
                     }
@@ -281,7 +282,9 @@ public class EnemyController : MonoBehaviour {
     {
         knockback_time = start_knockback_time;
         //direction = new Vector3(1f, 1f, 0f);
-        move_direction = direction * knockback_force;
-        gameObject.GetComponent<Rigidbody2D>().velocity = move_direction;
+        //move_direction = direction * knockback_force;
+        Vector2 knockback_thrust = direction * knockback_force;
+        //gameObject.GetComponent<Rigidbody2D>().velocity = move_direction;
+        gameObject.GetComponent<Rigidbody2D>().velocity = knockback_thrust;
     }
 }
