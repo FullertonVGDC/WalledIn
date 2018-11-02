@@ -15,6 +15,10 @@ public class PlayerHealthManager : MonoBehaviour {
     private SpriteRenderer player_sprite;
     public float alpha;
 
+    private bool temporary_invincibility_active;
+    public float start_temporary_invincibility_time;
+    private float temporary_invincibility_time;
+
     public PlayerController the_player;
 	// Use this for initialization
 	void Start () {
@@ -23,6 +27,8 @@ public class PlayerHealthManager : MonoBehaviour {
         player_sprite = GetComponent<SpriteRenderer>();
 
         the_player = FindObjectOfType<PlayerController>();
+
+        temporary_invincibility_time = start_temporary_invincibility_time;
 	}
 	
 	// Update is called once per frame
@@ -60,13 +66,29 @@ public class PlayerHealthManager : MonoBehaviour {
 
     public void HurtPlayer (int damage_to_give, Vector3 direction)
     {
-        player_current_health -= damage_to_give;
+        if (temporary_invincibility_active)
+            return;
+        else
+        {
 
-        player_flash_active = true;
+            player_current_health -= damage_to_give;
 
-        flash_time = start_flash_time;
+            player_flash_active = true;
 
-        the_player.Knockback(direction);
+            flash_time = start_flash_time;
+
+            the_player.Knockback(direction);
+
+            temporary_invincibility_active = true;
+            StartCoroutine(TemporaryInvincibilityCounter());
+        }
+    }
+
+    private IEnumerator TemporaryInvincibilityCounter ()
+    {
+        yield return new WaitForSeconds(temporary_invincibility_time);
+
+        temporary_invincibility_active = false;
     }
 
     public void SetMaxHealth ()
