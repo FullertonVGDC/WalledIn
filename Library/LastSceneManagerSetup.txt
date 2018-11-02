@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/BattleArena.unity
+- path: Assets/Scenes/EnemyAI Test.unity
   isLoaded: 1
   isActive: 1

@@ -10,6 +10,8 @@ public class EnemyHealthManager : MonoBehaviour {
 
     //private Vector3 move_direction;
 
+    public GameObject damage_burst;
+
     public int enemy_max_health;
 
     public int enemy_current_health;
@@ -33,25 +35,27 @@ public class EnemyHealthManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (dazed_time < 0)
-        {
-            gameObject.GetComponent<EnemyFollowAI>().move_speed = 10;
-        } else
-        {
-            dazed_time -= Time.deltaTime;
+        //if (dazed_time < 0)
+        //{
+        //    gameObject.GetComponent<EnemyFollowAI>().move_speed = 10;
+        //} else
+        //{
+        //    dazed_time -= Time.deltaTime;
 
-            gameObject.GetComponent<EnemyFollowAI>().move_speed = 0;
-        }
+        //    gameObject.GetComponent<EnemyFollowAI>().move_speed = 0;
+        //}
+        if (enemy_current_health <= 0)
+            Debug.Log("Enemy Destroyed");
 
-
-		if (enemy_current_health <= 0)
+		if (enemy_current_health <= 0f)
         {
+            Debug.Log("Enemy Destroyed");
             //gameObject.SetActive(false);
-            gameObject.GetComponent<EnemyController>().gameObject.SetActive(false);
-            Destroy(gameObject.GetComponent<EnemyController>().gameObject);
-            gameObject.SetActive(false);
+           // gameObject.GetComponent<EnemyController>().gameObject.SetActive(false);
+           // Destroy(gameObject.GetComponent<EnemyController>().gameObject);
+           // gameObject.SetActive(false);
             Destroy(gameObject);
-            //Destroy(the_enemy.gameObje
+            //Destroy(the_enemy.gameObject)
         }
 
 	}
@@ -63,6 +67,8 @@ public class EnemyHealthManager : MonoBehaviour {
         enemy_current_health -= damage_to_give;
 
         the_enemy.Knockback(direction);
+
+        Instantiate(damage_burst, gameObject.transform.position, gameObject.transform.rotation);
         
     }
     //public void Knockback(Vector3 direction)

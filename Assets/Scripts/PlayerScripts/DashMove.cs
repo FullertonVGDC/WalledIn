@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DashMove : MonoBehaviour {
 
+    public GameObject dash_burst;
+
     private Rigidbody2D my_rigid_body;
     public float dash_speed;
     private float dash_time;
@@ -57,6 +59,7 @@ public class DashMove : MonoBehaviour {
                 }
                 else
                 {
+                Instantiate(dash_burst, gameObject.transform.position, gameObject.transform.rotation);
                     dash_time -= Time.deltaTime;
 
                     if (direction == 1)

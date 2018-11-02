@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TextBoxManager : MonoBehaviour {
 
@@ -24,6 +25,8 @@ public class TextBoxManager : MonoBehaviour {
     private bool cancel_typing;
 
     public float type_speed;
+
+ 
 
     // Use this for initialization
     void Start()

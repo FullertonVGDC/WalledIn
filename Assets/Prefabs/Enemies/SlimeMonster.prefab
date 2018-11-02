@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16394c0350398c748b8d82708861e39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage_burst: {fileID: 0}
   enemy_max_health: 40
   enemy_current_health: 0
   start_dazed_time: 0

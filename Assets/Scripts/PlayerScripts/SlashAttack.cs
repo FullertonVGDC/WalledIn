@@ -7,7 +7,7 @@ public class SlashAttack : MonoBehaviour {
     public float start_cool_down_time;
     private float cool_down_time;
 
-    public GameObject damage_burst;
+    //public GameObject damage_burst;
 
     public Transform attack_pos;
    // public float attack_range;
@@ -35,7 +35,7 @@ public class SlashAttack : MonoBehaviour {
                 
                 for (int i = 0; i < enemies_to_damage.Length; i++)
                 {
-                    Instantiate(damage_burst, attack_pos.position, attack_pos.rotation);
+                    //Instantiate(damage_burst, attack_pos.position, attack_pos.rotation);
 
                     Vector3 hit_direction = enemies_to_damage[i].transform.position - the_player.transform.position ;
                     hit_direction = hit_direction.normalized;

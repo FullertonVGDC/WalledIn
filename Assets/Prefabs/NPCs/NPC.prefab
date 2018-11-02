@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114261076550882706}
   - component: {fileID: 61848061982030938}
   - component: {fileID: 61989618453222434}
-  - component: {fileID: 114386007010791330}
+  - component: {fileID: 114183935394938926}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340321283499514}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14, y: -16.5, z: 0}
+  m_LocalPosition: {x: 31.223417, y: -50.321846, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,7 +102,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011276543, y: 0.022553444}
+  m_Offset: {x: -0.011276543, y: 0.003322482}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -113,8 +113,25 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31787288, y: 0.29532003}
+  m_Size: {x: 0.31787288, y: 0.33378196}
   m_EdgeRadius: 0
+--- !u!114 &114183935394938926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340321283499514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e251f818cd2bad24383b89737c83dd92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  the_text: {fileID: 4900000, guid: ca463e1e887daa34da2fc739c58b1f7a, type: 3}
+  start_line: 2
+  end_line: 3
+  the_text_box: {fileID: 0}
+  destroy_when_activated: 0
+  require_button_press: 1
 --- !u!114 &114261076550882706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,23 +148,6 @@ MonoBehaviour:
   start_walk_time: 1
   start_wait_time: 2
   walk_zone: {fileID: 0}
---- !u!114 &114386007010791330
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1340321283499514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e251f818cd2bad24383b89737c83dd92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  the_text: {fileID: 4900000, guid: ca463e1e887daa34da2fc739c58b1f7a, type: 3}
-  start_line: 1
-  end_line: 2
-  the_text_box: {fileID: 0}
-  destroy_when_activated: 0
-  require_button_press: 1
 --- !u!212 &212013139110055492
 SpriteRenderer:
   m_ObjectHideFlags: 1

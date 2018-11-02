@@ -83,7 +83,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.38, y: 0.99000007}
-    newSize: {x: 0.42, y: 0.42}
+    newSize: {x: 1.38, y: 0.99000007}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16394c0350398c748b8d82708861e39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage_burst: {fileID: 0}
   enemy_max_health: 50
   enemy_current_health: -120
   start_dazed_time: 0
@@ -231,7 +232,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.42, y: 0.42}
+  m_Size: {x: 1.38, y: 0.99000007}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
