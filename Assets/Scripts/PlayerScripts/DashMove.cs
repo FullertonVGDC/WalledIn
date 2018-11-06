@@ -12,41 +12,49 @@ public class DashMove : MonoBehaviour {
     public float start_dash_time;
     private int direction;
 
+    //public float start_cooldown_time;
+    //private float cooldown_time;
+    //private bool cooldown_active;
+
 	// Use this for initialization
 	void Start () {
         my_rigid_body = GetComponent<Rigidbody2D>();
         dash_time = start_dash_time;
+
+        //cooldown_time = start_cooldown_time;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-
-
         
+
+
             if (direction == 0)
             {
+                 
                 if (Input.GetKey(KeyCode.A) && Input.GetKeyDown(KeyCode.Slash))
                 {
-                   
+
                     direction = 1;
 
                 }
                 else if (Input.GetKey(KeyCode.D) && Input.GetKeyDown(KeyCode.Slash))
                 {
-                   
+
                     direction = 2;
                 }
                 else if (Input.GetKey(KeyCode.W) && Input.GetKeyDown(KeyCode.Slash))
                 {
-                   
+
                     direction = 3;
                 }
                 else if (Input.GetKey(KeyCode.S) && Input.GetKeyDown(KeyCode.Slash))
                 {
-                  
+
                     direction = 4;
                 }
+                  
             }
 
             else
@@ -59,7 +67,7 @@ public class DashMove : MonoBehaviour {
                 }
                 else
                 {
-                Instantiate(dash_burst, gameObject.transform.position, gameObject.transform.rotation);
+                    Instantiate(dash_burst, gameObject.transform.position, gameObject.transform.rotation);
                     dash_time -= Time.deltaTime;
 
                     if (direction == 1)
@@ -82,4 +90,13 @@ public class DashMove : MonoBehaviour {
             }
         
 	}
+
+    //IEnumerator CooldownTimer ()
+    //{
+    //    cooldown_active = true; 
+
+    //    yield return new WaitForSeconds(cooldown_time);
+
+    //    cooldown_active = false;
+    //}
 }

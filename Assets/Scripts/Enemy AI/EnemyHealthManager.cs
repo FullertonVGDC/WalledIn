@@ -20,6 +20,11 @@ public class EnemyHealthManager : MonoBehaviour {
     private float dazed_time;
 
     private EnemyController the_enemy;
+    private FireBallEnemy the_fireball_enemy;
+    public bool is_fireball_enemy;
+
+    private SFXManager the_sfx_manager;
+    private bool enemy_hit;
     //public float start_knock_back_time;
     //private float knock_back_time;
     //public float knock_back_thrust;
@@ -29,12 +34,16 @@ public class EnemyHealthManager : MonoBehaviour {
     void Start () {
         enemy_current_health = enemy_max_health;
 
+        if (is_fireball_enemy)
+            the_fireball_enemy = GetComponent<FireBallEnemy>();
+        else
         the_enemy = gameObject.GetComponent<EnemyController>();
+
+        the_sfx_manager = FindObjectOfType<SFXManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
         //if (dazed_time < 0)
         //{
         //    gameObject.GetComponent<EnemyFollowAI>().move_speed = 10;
@@ -51,9 +60,11 @@ public class EnemyHealthManager : MonoBehaviour {
         {
             Debug.Log("Enemy Destroyed");
             //gameObject.SetActive(false);
-           // gameObject.GetComponent<EnemyController>().gameObject.SetActive(false);
-           // Destroy(gameObject.GetComponent<EnemyController>().gameObject);
-           // gameObject.SetActive(false);
+            // gameObject.GetComponent<EnemyController>().gameObject.SetActive(false);
+            // Destroy(gameObject.GetComponent<EnemyController>().gameObject);
+            // gameObject.SetActive(false);
+            the_sfx_manager.enemy_dead.Play();
+
             Destroy(gameObject);
             //Destroy(the_enemy.gameObject)
         }
@@ -62,14 +73,20 @@ public class EnemyHealthManager : MonoBehaviour {
 
     public void HurtEnemy(int damage_to_give, Vector3 direction)
     {
+        the_sfx_manager.hit_effect.Play();
+
         dazed_time = start_dazed_time;
 
         enemy_current_health -= damage_to_give;
 
+        if (is_fireball_enemy)
+            the_fireball_enemy.Knockback(direction);
+        else
         the_enemy.Knockback(direction);
 
         Instantiate(damage_burst, gameObject.transform.position, gameObject.transform.rotation);
-        
+
+       // enemy_hit = true;
     }
     //public void Knockback(Vector3 direction)
     //{
